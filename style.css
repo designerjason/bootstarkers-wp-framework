@@ -1,0 +1,46 @@
+/*
+Theme Name: 	BootStarkers
+Description: 	A Hybrid skeleton framework based on Twitter Bootstrap and Starkers Framework
+Version: 		3.0
+Author: 		JMC Website Design
+Author URI: 	http://jmc-website-design.co.uk
+Tags: 			starkers, bootstrap, naked, clean, basic
+*/
+
+
+/*Styles used in bootstrap - find and replace
+
+SANS FONT: Helvetica
+SERIF FONT: Times
+MONO FONT: Courier
+
+LINK FONT: #0088cc
+BUTTON BOTTOM GRADIENT: #0044cc
+BUTTON BORDER COLOUR: #006DCC
+LINK HOVER, Focus: #005580
+BODY FONT COLOUR: #333333
+
+BLUE: #049cdb
+GREEN: #46a546
+RED: #9d261d
+YELLOW: #ffc40d
+ORANGE: #f89406
+PINK: #c3325f
+PURPLE: #7a43b6
+
+SPRITES: glyphicons
+
+TABLE ACCENT: #f9f9f9
+TABLE BORDER: #dddddd
+TABLER HOVER, FORM ACTIONS BGD: #f5f5f5
+
+
+IE PREFIX - specific fixes:
+
+.ie6
+.ie7
+.iem7 (internet explorer mobile)
+.ie8
+
+
+*/
