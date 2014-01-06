@@ -83,19 +83,6 @@ hr {
        box-sizing: content-box;
 }
 
-mark {
-  color: #000;
-  background: #ff0;
-}
-
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, serif;
-  font-size: 1em;
-}
-
 pre {
   white-space: pre-wrap;
 }
@@ -130,10 +117,6 @@ img {
 
 svg:not(:root) {
   overflow: hidden;
-}
-
-figure {
-  margin: 0;
 }
 
 fieldset {
@@ -342,33 +325,9 @@ a:focus {
 
 img {
   vertical-align: middle;
-}
-
-.img-responsive {
   display: block;
   height: auto;
   max-width: 100%;
-}
-
-.img-rounded {
-  border-radius: 6px;
-}
-
-.img-thumbnail {
-  display: inline-block;
-  height: auto;
-  max-width: 100%;
-  padding: 4px;
-  line-height: 1.428571429;
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
-  border-radius: 4px;
-  -webkit-transition: all 0.2s ease-in-out;
-          transition: all 0.2s ease-in-out;
-}
-
-.img-circle {
-  border-radius: 50%;
 }
 
 hr {
@@ -378,26 +337,8 @@ hr {
   border-top: 1px solid #eeeeee;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  border: 0;
-}
-
 p {
   margin: 0 0 10px;
-}
-
-.lead {
-  margin-bottom: 20px;
-  font-size: 16.099999999999998px;
-  font-weight: 200;
-  line-height: 1.4;
 }
 
 @media (min-width: 768px) {
@@ -464,7 +405,7 @@ h6,
 .h6 {
   font-family: "Arial", sans-serif;
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.1
 }
 
 h1 small,
@@ -545,12 +486,6 @@ h4 small,
   font-size: 14px;
 }
 
-.page-header {
-  padding-bottom: 9px;
-  margin: 40px 0 20px;
-  border-bottom: 1px solid #eeeeee;
-}
-
 ul,
 ol {
   margin-top: 0;
@@ -562,39 +497,6 @@ ol ul,
 ul ol,
 ol ol {
   margin-bottom: 0;
-}
-
-.list-unstyled {
-  padding-left: 0;
-  list-style: none;
-}
-
-.list-inline {
-  padding-left: 0;
-  list-style: none;
-}
-
-.list-inline > li {
-  display: inline-block;
-  padding-right: 5px;
-  padding-left: 5px;
-}
-
-dl {
-  margin-bottom: 20px;
-}
-
-dt,
-dd {
-  line-height: 1.428571429;
-}
-
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin-left: 0;
 }
 
 @media (min-width: 768px) {
