@@ -1,3 +1,15 @@
 This is a work in progress, using viewport industries starkers framework for Wordpress https://github.com/viewportindustries/starkers, and twitter bootstrap http://getbootstrap.com/.
 
-My intention was to create something VERY basic, which could be used for the foundation of a new project. This would include stripping down the css and javascript to it's bare minimum. Most of the extra stuff would need to be added back in, on a per-project basis.
+My intention was to create something VERY basic, a general purpose framework which could be used for the foundation of a new project. This would include stripping down the css and javascript to it's bare minimum. Most of the extra stuff would need to be added back in, on a per-project basis. As such, this set up isn't probably suited if you're looking for application development - as a lot of stuff related to that has been taken out (like advanced buttons).
+
+What I've kept in:
+
+JQuery
+- Carousel Functionality
+- Dropdowns
+- Toggleable Tabs
+- Collapse
+- Transitions
+
+CSS
+- 
