@@ -42,6 +42,8 @@
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
 
 	//add_image_size( "thumb-mobile", width, height, True );
+
+	
 	
 	/**NAVIGATION**/
 	/****** if ( function_exists( 'register_nav_menus' ) ) {
@@ -74,7 +76,7 @@
 
 
 	 function starkers_script_enqueuer() {
-		wp_register_script( 'site', get_template_directory_uri().'/assets/js/bootstrap.min.js', false, '', true );
+		wp_register_script( 'site', get_template_directory_uri().'/assets/js/min/bootstrap.min.js', false, '', true );
 		wp_enqueue_script( 'site' );
 		
 		wp_register_script( 'site', get_template_directory_uri().'/assets/js/site.js', false, '', true );
@@ -86,8 +88,6 @@
 		//wp_register_style( 'responsive', get_stylesheet_directory_uri().'/assets/css/bootstrap-responsive.css', '', '', 'screen' );
         //wp_enqueue_style( 'responsive' );		
 		
-		wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.css', '', '', 'screen' );
-        wp_enqueue_style( 'screen' );
 	}	
 	
 	
