@@ -91,7 +91,7 @@
 		wp_register_script( 'site', get_template_directory_uri().'/assets/js/min/bootstrap.min.js', false, null, true );
 		wp_enqueue_script( 'site' );
 		
-		wp_register_script( 'site', get_template_directory_uri().'/assets/js/site.js', false, null, true );
+		wp_register_script( 'site', get_template_directory_uri().'/assets/js/script.min.js', false, null, true );
 		wp_enqueue_script( 'site' );
 
 		wp_register_style( 'bootstrap', get_stylesheet_directory_uri().'/assets/css/bootstrap.css', '', null, 'all' );
