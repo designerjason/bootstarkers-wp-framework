@@ -16,7 +16,7 @@
 	======================================================================================================================== */
 
 	require_once( 'assets/includes/starkers-utilities.php' );
-	require_once( 'assets/includes/Mobile_Detect.php' );
+	//require_once( 'assets/includes/Mobile_Detect.php' );
 
 	/* ========================================================================================================================
 	
@@ -29,6 +29,9 @@
 	add_theme_support('post-thumbnails');
 	
 	//register_nav_menus(array('primary' => 'Primary Navigation'));
+
+	//optimise jpeg images a bit more...
+	add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
 	
 
 	/* ========================================================================================================================
@@ -43,8 +46,17 @@
 
 	//add_image_size( "thumb-mobile", width, height, True );
 
-	
-	
+
+	if(false === get_option("medium_crop")) {
+	    
+	    add_option("medium_crop", "1");
+		
+			} else {
+    	
+    			update_option("medium_crop", "1");
+	}
+
+		
 	/**NAVIGATION**/
 	/****** if ( function_exists( 'register_nav_menus' ) ) {
 	register_nav_menus(
@@ -70,23 +82,20 @@
 
 	if( !is_admin()){
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"), false, '1.9.1', true);
+		wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"), false, null, true);
 		wp_enqueue_script('jquery');
 	}
 
 
 	 function starkers_script_enqueuer() {
-		wp_register_script( 'site', get_template_directory_uri().'/assets/js/min/bootstrap.min.js', false, '', true );
+		wp_register_script( 'site', get_template_directory_uri().'/assets/js/min/bootstrap.min.js', false, null, true );
 		wp_enqueue_script( 'site' );
 		
-		wp_register_script( 'site', get_template_directory_uri().'/assets/js/site.js', false, '', true );
+		wp_register_script( 'site', get_template_directory_uri().'/assets/js/site.js', false, null, true );
 		wp_enqueue_script( 'site' );
 
-		wp_register_style( 'bootstrap', get_stylesheet_directory_uri().'/assets/css/bootstrap.css', '', '', 'all' );
-        wp_enqueue_style( 'bootstrap' );
-
-		//wp_register_style( 'responsive', get_stylesheet_directory_uri().'/assets/css/bootstrap-responsive.css', '', '', 'screen' );
-        //wp_enqueue_style( 'responsive' );		
+		wp_register_style( 'bootstrap', get_stylesheet_directory_uri().'/assets/css/bootstrap.css', '', null, 'all' );
+        wp_enqueue_style( 'bootstrap' );	
 		
 	}	
 	
