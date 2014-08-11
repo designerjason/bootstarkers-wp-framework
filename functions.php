@@ -146,7 +146,7 @@ add_action('wp_footer', 'add_ga_code');
 	}
 	
 	
-	/*REMOVE ADMIN MENUS IF NOT ADMIN*/
+/*REMOVE ADMIN MENUS IF NOT ADMIN*/
 	function remove_menus () {
 get_currentuserinfo();
 global $current_user, $menu;
