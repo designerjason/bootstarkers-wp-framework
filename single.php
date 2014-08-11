@@ -9,7 +9,7 @@
  * @since 		Starkers 4.0
  */
 ?>
-<?php Starkers_Utilities::get_template_parts( array( 'assets/includes/html-header', 'assets/includes/header' ) ); ?>
+<?php Starkers_Utilities::get_template_parts( array( 'assets/includes/header' ) ); ?>
 <div class="container">
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
@@ -22,4 +22,4 @@
 </article>
 <?php endwhile; ?>
 </div>
-<?php Starkers_Utilities::get_template_parts( array( 'assets/includes/footer','assets/includes/html-footer' ) ); ?>
+<?php Starkers_Utilities::get_template_parts( array( 'assets/includes/footer' ) ); ?>

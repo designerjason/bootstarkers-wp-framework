@@ -9,7 +9,7 @@
  * @since 		Starkers 4.0
  */
 ?>
-<?php Starkers_Utilities::get_template_parts( array( 'assets/includes/html-header', 'assets/includes/header' ) ); ?>
+<?php Starkers_Utilities::get_template_parts( array( 'assets/includes/header' ) ); ?>
 <div class="container">
 <?php if ( have_posts() ): ?>
 <h1>Search Results for '<?php echo get_search_query(); ?>'</h1>	
@@ -28,4 +28,4 @@
 <h2>No results found for '<?php echo get_search_query(); ?>'</h2>
 <?php endif; ?>
 </div>
-<?php Starkers_Utilities::get_template_parts( array( 'assets/includes/footer','assets/includes/html-footer' ) ); ?>
+<?php Starkers_Utilities::get_template_parts( array( 'assets/includes/footer' ) ); ?>
