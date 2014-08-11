@@ -11,15 +11,16 @@
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'assets/includes/header' ) ); ?>
 <div class="container">
-<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-<article>
+	<article>
 
-	<h1><?php the_title(); ?></h1>
+		<h1><?php the_title(); ?></h1>
 
-	<?php the_content(); ?>			
+		<?php the_content(); ?>			
 
-</article>
-<?php endwhile; ?>
+	</article>
+
+	<?php endwhile; ?>
 </div>
 <?php Starkers_Utilities::get_template_parts( array( 'assets/includes/footer' ) ); ?>
