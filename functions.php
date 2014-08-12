@@ -29,9 +29,6 @@
 	add_theme_support('post-thumbnails');
 	
 	//register_nav_menus(array('primary' => 'Primary Navigation'));
-
-	//optimise jpeg images a bit more...deprecated...
-	add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
 	
 
 	/* ========================================================================================================================
@@ -40,7 +37,28 @@
 	
 	======================================================================================================================== */
 
-	add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
+		//google analytics code
+
+	function add_ga_code() { ?>
+
+	<script type="text/javascript">
+    	var _gaq = _gaq || [];
+    	_gaq.push(['_setAccount', 'UA-XXXXX-X']); //Update 'UA-XXXXX-X' with valid account id
+    	_gaq.push(['_trackPageview']);
+
+	    (function() {
+    	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       	 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       	 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    	})();
+	</script>
+
+	<?php } 
+
+	add_action('wp_footer', 'add_ga_code');
+
+	//optimise jpeg images a bit more...deprecated...
+	add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
 
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
 
@@ -48,7 +66,6 @@
 
 
 	if(false === get_option("medium_crop")) {
-	    
 	    add_option("medium_crop", "1");
 		
 			} else {
@@ -56,7 +73,25 @@
     			update_option("medium_crop", "1");
 	}
 
-		
+
+	function new_excerpt_length($length) {
+		return 100;
+	}
+	
+	add_filter('excerpt_length', 'new_excerpt_length');
+
+
+		/* change the admin default welcome page */
+	function loginRedirect( $redirect_to, $request, $user ){
+    	if( is_array( $user->roles ) ) { // check if user has a role
+        	return home_url("/wp-admin/edit.php?post_type=ENTERHERE");
+
+    	}
+	}
+
+	add_filter("login_redirect", "loginRedirect", 10, 3);
+
+
 	/**NAVIGATION**/
 	/* if ( function_exists( 'register_nav_menus' ) ) {
 		register_nav_menus(
@@ -80,15 +115,6 @@
 	 * @author Keir Whitaker
 	 */
 
-// Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
-function remove_thumbnail_dimensions( $html ) {
-    $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
-    return $html;
-}
-
-add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
-add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
-
 
 	if( !is_admin()){
 		wp_deregister_script('jquery');
@@ -107,44 +133,16 @@ add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove
 		
 	}	
 
-	function conditional_scripts()
-{
-    if (is_page('pagenamehere')) {
-        wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
-        wp_enqueue_script('scriptname'); // Enqueue it!
-    }
-}
+	function conditional_scripts(){
+
+    	if (is_page('pagenamehere')) {
+        	wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        	wp_enqueue_script('scriptname'); // Enqueue it!
+    	}
+	}
 	
-add_action('wp_print_scripts', 'conditional_scripts'); // Add Conditional Page Scripts
-
-	
-	//google analytics code
-
-	function add_ga_code() { ?>
-
-<script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-XXXXX-X']); //Update 'UA-XXXXX-X' with valid account id
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-</script>
-
-<?php } 
-
-add_action('wp_footer', 'add_ga_code');
-
-
-// Remove Admin bar
-function remove_admin_bar()
-{
-    return false;
-}
-add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
+	add_action('wp_print_scripts', 'conditional_scripts'); // Add Conditional Page Scripts
+	add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
 
 
 	/* ========================================================================================================================
@@ -172,34 +170,48 @@ add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 			</article>
 		<?php endif;
 	}
+
+
+	/********** REMOVE AND CLEANUP STUFF **********/	
 	
-	
-/*REMOVE ADMIN MENUS IF NOT ADMIN*/
+	/*remove admin menu items*/
 	function remove_menus () {
-get_currentuserinfo();
-global $current_user, $menu;
-if( ! in_array( 'administrator', $current_user->roles ) ){
-	$restricted = array( __('Posts'), __('Links'), __('Tools'), __('Comments'), __('Feedbacks'), __('Settings'));
-	end ($menu);
-	while (prev($menu)){
-		$value = explode(' ',$menu[key($menu)][0]);
-		if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
+		get_currentuserinfo();
+		global $current_user, $menu;
+
+		if( ! in_array( 'administrator', $current_user->roles ) ){
+			$restricted = array( __('Posts'), __('Links'), __('Tools'), __('Comments'), __('Feedbacks'), __('Settings'));
+			end ($menu);
+
+			while (prev($menu)){
+				$value = explode(' ',$menu[key($menu)][0]);
+				if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
+			}
+		}
+
 	}
-}
 
-}
+	add_action('admin_menu', 'remove_menus');
 
-add_action('admin_menu', 'remove_menus');
+	// Remove Admin bar
+	function remove_admin_bar(){
+   		return false;
+	}
 
-
-
-/* change the admins default welcome page */
-function loginRedirect( $redirect_to, $request, $user ){
-    if( is_array( $user->roles ) ) { // check if user has a role
-        return home_url("/wp-admin/edit.php?post_type=ENTERHERE");
-
-    }
-}
+	add_filter('show_admin_bar', 'remove_admin_bar'); 
 
 
-add_filter("login_redirect", "loginRedirect", 10, 3);	
+	// Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
+	function remove_thumbnail_dimensions( $html ) {
+    	$html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
+    	return $html;
+	}
+
+	add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
+	add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
+
+
+	function wpbeginner_remove_version() { //remove wordpress version in head
+		return '';
+	}
+	add_filter('the_generator', 'wpbeginner_remove_version');
