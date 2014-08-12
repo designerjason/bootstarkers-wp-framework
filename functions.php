@@ -34,7 +34,7 @@
 	
 	======================================================================================================================== */
 
-		//google analytics code
+	// Google analytics code
 
 	function add_ga_code() { ?>
 
@@ -54,12 +54,12 @@
 
 	add_action('wp_footer', 'add_ga_code');
 
-	//optimise jpeg images a bit more...deprecated...
+	// Optimise jpeg images a bit more...deprecated...
 	add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
 
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
 
-	//add_image_size( "thumb-mobile", width, height, True );
+	// add_image_size( "thumb-mobile", width, height, True );
 
 
 	if(false === get_option("medium_crop")) {
@@ -77,7 +77,7 @@
 	add_filter('excerpt_length', 'new_excerpt_length');
 
 
-		/* change the admin default welcome page */
+	// Change the admin default welcome page
 	function loginRedirect( $redirect_to, $request, $user ){
     	if( is_array( $user->roles ) ) { // check if user has a role
         	return home_url("/wp-admin/edit.php?post_type=ENTERHERE");
@@ -111,14 +111,14 @@
 	 * @author Keir Whitaker
 	 */
 
-
+	// Reload jquery so there are no conflicts
 	if( !is_admin()){
 		wp_deregister_script('jquery');
 		wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"), false, null, true);
 		wp_enqueue_script('jquery');
 	}
 
-
+	// minified merged jquery file and sass compiled css
 	 function starkers_script_enqueuer() {
 		
 		wp_register_script( 'site', get_template_directory_uri().'/assets/js/min/script.min.js', false, null, true );
@@ -129,7 +129,7 @@
 		
 	}	
 
-
+	// load jquery which is only required on some pages here
 	function conditional_scripts(){
 
     	if (is_page('pagenamehere')) {
@@ -154,6 +154,7 @@
 	 * @return void
 	 * @author Keir Whitaker
 	 */
+
 	function starkers_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment; 
 		?>
@@ -171,7 +172,7 @@
 
 	/********** REMOVE AND CLEANUP STUFF **********/	
 	
-	/*remove admin menu items*/
+	// Remove admin menu items
 	function remove_menus () {
 		get_currentuserinfo();
 		global $current_user, $menu;
@@ -207,14 +208,14 @@
 	add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
 	add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
 
-
-	function wpbeginner_remove_version() { //remove wordpress version in head
+	// Remove wordpress version in head
+	function wpbeginner_remove_version() { 
 		return '';
 	}
 	add_filter('the_generator', 'wpbeginner_remove_version');
 
 
-	// no more jumping for read more link
+	// No more jumping for read more link
 	function no_more_jumping($post) {
 		return '<a href="'.get_permalink($post->ID).'" class="read-more">'.'Continue Reading'.'</a>';
 	}
@@ -222,7 +223,7 @@
 	add_filter('the_content_more_link', 'remove_more_jump_link');
 
 
-	// remove junk from head
+	// Remove junk from head
 	remove_action('wp_head', 'rsd_link');
 	remove_action('wp_head', 'wp_generator');
 	remove_action('wp_head', 'feed_links', 2);
