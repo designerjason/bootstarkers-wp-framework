@@ -18,16 +18,13 @@
 	require_once( 'assets/includes/starkers-utilities.php' );
 	//require_once( 'assets/includes/Mobile_Detect.php' );
 
-	/* ========================================================================================================================
-	
-	Theme specific settings
+	/*======================================================================================================================== */
 
-	Uncomment register_nav_menus to enable a single menu with the title of "Primary Navigation" in your theme
-	
-	======================================================================================================================== */
 
 	add_theme_support('post-thumbnails');
 	
+	//Uncomment register_nav_menus to enable a single menu with the title of "Primary Navigation" in your theme
+
 	//register_nav_menus(array('primary' => 'Primary Navigation'));
 	
 
@@ -75,7 +72,7 @@
 
 
 	function new_excerpt_length($length) {
-		return 100;
+		return 20;
 	}
 	
 	add_filter('excerpt_length', 'new_excerpt_length');
@@ -132,6 +129,7 @@
         wp_enqueue_style( 'bootstrap' );	
 		
 	}	
+
 
 	function conditional_scripts(){
 
@@ -215,3 +213,23 @@
 		return '';
 	}
 	add_filter('the_generator', 'wpbeginner_remove_version');
+
+
+	// no more jumping for read more link
+	function no_more_jumping($post) {
+		return '<a href="'.get_permalink($post->ID).'" class="read-more">'.'Continue Reading'.'</a>';
+	}
+	add_filter('excerpt_more', 'no_more_jumping');
+	add_filter('the_content_more_link', 'remove_more_jump_link');
+
+
+	// remove junk from head
+	remove_action('wp_head', 'rsd_link');
+	remove_action('wp_head', 'wp_generator');
+	remove_action('wp_head', 'feed_links', 2);
+	remove_action('wp_head', 'index_rel_link');
+	remove_action('wp_head', 'wlwmanifest_link');
+	remove_action('wp_head', 'feed_links_extra', 3);
+	remove_action('wp_head', 'start_post_rel_link', 10, 0);
+	remove_action('wp_head', 'parent_post_rel_link', 10, 0);
+	remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
