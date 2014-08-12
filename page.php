@@ -14,7 +14,7 @@
  * @since 		Starkers 4.0
  */
 ?>
-<?php Starkers_Utilities::get_template_parts( array( 'assets/includes/header' ) ); ?>
+<?php Starkers_Utilities::get_template_parts( array( 'header' ) ); ?>
 
 <div class="container">
 	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -24,4 +24,4 @@
 	<?php endwhile; ?>
 </div>
 
-<?php Starkers_Utilities::get_template_parts( array( 'assets/includes/footer' ) ); ?>
+<?php Starkers_Utilities::get_template_parts( array( 'footer' ) ); ?>

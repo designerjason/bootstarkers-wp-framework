@@ -9,7 +9,7 @@
  * @since 		Starkers 4.0
  */
 ?>
-<?php Starkers_Utilities::get_template_parts( array( 'assets/includes/header' ) ); ?>
+<?php Starkers_Utilities::get_template_parts( array( 'header' ) ); ?>
 
 <div class="container">
 	<h1>Page not found</h1>
@@ -27,4 +27,4 @@
 	<p>If you think there should be a page here, please get in touch , thanks!</p>
 </div>
 
-<?php Starkers_Utilities::get_template_parts( array( 'assets/includes/footer' ) ); ?>
+<?php Starkers_Utilities::get_template_parts( array( 'footer' ) ); ?>
