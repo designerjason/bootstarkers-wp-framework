@@ -58,13 +58,13 @@
 
 		
 	/**NAVIGATION**/
-	/****** if ( function_exists( 'register_nav_menus' ) ) {
-	register_nav_menus(
-		array(
-		  'primary' => 'Primary Nav'
-		)
-	); 
-} **********/
+	/* if ( function_exists( 'register_nav_menus' ) ) {
+		register_nav_menus(
+			array(
+		  	'primary' => 'Primary Nav'
+			)
+		); 
+	} */
 
 
 	/* ========================================================================================================================
@@ -88,21 +88,20 @@
 
 
 	 function starkers_script_enqueuer() {
-		wp_register_script( 'site', get_template_directory_uri().'/assets/js/min/bootstrap.min.js', false, null, true );
-		wp_enqueue_script( 'site' );
 		
-		wp_register_script( 'site', get_template_directory_uri().'/assets/js/script.min.js', false, null, true );
+		wp_register_script( 'site', get_template_directory_uri().'/assets/js/min/script.min.js', false, null, true );
 		wp_enqueue_script( 'site' );
 
-		wp_register_style( 'bootstrap', get_stylesheet_directory_uri().'/assets/css/bootstrap.css', '', null, 'all' );
+		wp_register_style( 'bootstrap', get_stylesheet_directory_uri().'/assets/stylesheets/bootstrap.css', '', null, 'all' );
         wp_enqueue_style( 'bootstrap' );	
 		
 	}	
 	
 	
-	function add_ga_code() 
-{
-?>
+	//google analytics code
+
+	function add_ga_code() { ?>
+
 <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-XXXXX-X']); //Update 'UA-XXXXX-X' with valid account id
@@ -114,8 +113,9 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 </script>
-<?php
-}
+
+<?php } 
+
 add_action('wp_footer', 'add_ga_code');
 
 
