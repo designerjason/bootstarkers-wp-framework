@@ -30,7 +30,7 @@
 	
 	//register_nav_menus(array('primary' => 'Primary Navigation'));
 
-	//optimise jpeg images a bit more...
+	//optimise jpeg images a bit more...deprecated...
 	add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );
 	
 
@@ -80,6 +80,16 @@
 	 * @author Keir Whitaker
 	 */
 
+// Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
+function remove_thumbnail_dimensions( $html ) {
+    $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
+    return $html;
+}
+
+add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
+add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
+
+
 	if( !is_admin()){
 		wp_deregister_script('jquery');
 		wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"), false, null, true);
@@ -92,11 +102,21 @@
 		wp_register_script( 'site', get_template_directory_uri().'/assets/js/min/script.min.js', false, null, true );
 		wp_enqueue_script( 'site' );
 
-		wp_register_style( 'bootstrap', get_stylesheet_directory_uri().'/assets/stylesheets/bootstrap.css', '', null, 'all' );
+		wp_register_style( 'bootstrap', get_stylesheet_directory_uri().'/assets/css/bootstrap.css', '', null, 'all' );
         wp_enqueue_style( 'bootstrap' );	
 		
 	}	
+
+	function conditional_scripts()
+{
+    if (is_page('pagenamehere')) {
+        wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
+        wp_enqueue_script('scriptname'); // Enqueue it!
+    }
+}
 	
+add_action('wp_print_scripts', 'conditional_scripts'); // Add Conditional Page Scripts
+
 	
 	//google analytics code
 
@@ -117,6 +137,14 @@
 <?php } 
 
 add_action('wp_footer', 'add_ga_code');
+
+
+// Remove Admin bar
+function remove_admin_bar()
+{
+    return false;
+}
+add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 
 
 	/* ========================================================================================================================
@@ -160,6 +188,7 @@ if( ! in_array( 'administrator', $current_user->roles ) ){
 }
 
 }
+
 add_action('admin_menu', 'remove_menus');
 
 
@@ -171,4 +200,6 @@ function loginRedirect( $redirect_to, $request, $user ){
 
     }
 }
+
+
 add_filter("login_redirect", "loginRedirect", 10, 3);	
