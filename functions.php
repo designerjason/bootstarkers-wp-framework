@@ -16,7 +16,6 @@
 	======================================================================================================================== */
 
 	require_once( 'assets/includes/starkers-utilities.php' );
-	require_once( 'assets/includes/dropdown-menu.php' );
 	//require_once( 'assets/includes/Mobile_Detect.php' );
 	//require_once( 'assets/includes/custom-post-type.php' );
 
@@ -110,17 +109,8 @@
     	}
 	}
 
-	add_filter("login_redirect", "loginRedirect", 10, 3);
+//add_filter("login_redirect", "loginRedirect", 10, 3);
 
-
-	/**NAVIGATION**/
-	/* if ( function_exists( 'register_nav_menus' ) ) {
-		register_nav_menus(
-			array(
-		  	'primary' => 'Primary Nav'
-			)
-		); 
-	} */
 
 
 	/* ========================================================================================================================
