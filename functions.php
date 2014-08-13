@@ -16,17 +16,42 @@
 	======================================================================================================================== */
 
 	require_once( 'assets/includes/starkers-utilities.php' );
+	require_once( 'assets/includes/dropdown-menu.php' );
 	//require_once( 'assets/includes/Mobile_Detect.php' );
+	//require_once( 'assets/includes/custom-post-type.php' );
 
 	/*======================================================================================================================== */
 
 
 	add_theme_support('post-thumbnails');
 	
-	//Uncomment register_nav_menus to enable a single menu with the title of "Primary Navigation" in your theme
 
-	//register_nav_menus(array('primary' => 'Primary Navigation'));
+	/** NAVIGATION **/
+	if ( function_exists( 'register_nav_menus' ) ) {
+		register_nav_menus(
+			array(
+		  	'primary' => 'Primary Nav'
+			)
+		); 
+	} 
 	
+
+	/** footer pagination for archive pages **/
+
+	function le_pagination(){
+	global $wp_query;
+
+	$big = 999999999; // need an unlikely integer
+
+		echo paginate_links( array(
+			'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+			'format' => '?paged=%#%',
+			'type' => 'list',
+			'current' => max( 1, get_query_var('paged') ),
+			'total' => $wp_query->max_num_pages
+		) );
+	}
+
 
 	/* ========================================================================================================================
 	

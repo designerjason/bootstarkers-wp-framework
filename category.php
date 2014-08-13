@@ -30,6 +30,9 @@
 <?php else: ?>
 	<h2>No posts to display in <?php echo single_cat_title( '', false ); ?></h2>
 <?php endif; ?>
+
+<?php le_pagination(); ?>
+
 </div>
 
 <?php Starkers_Utilities::get_template_parts( array( 'footer' ) ); ?>
