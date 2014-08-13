@@ -3,45 +3,44 @@
 @import "mixins";
 
 // RESET and dependencies
-@import "bootstrap/reset/normalize";
-@import "bootstrap/reset/print";
-@import "bootstrap/reset/glyphicons";
-@import "bootstrap/reset/scaffolding";
+@import "sass/reset/normalize";
+@import "sass/reset/print";
+@import "sass/reset/glyphicons";
+@import "sass/reset/scaffolding";
 
 // LAYOUT grid
-@import "bootstrap/grid/grid";
-@import "bootstrap/grid/thumbnails";
+@import "sass/grid/grid";
+@import "sass/grid/thumbnails";
 
 // CORE CSS
-@import "bootstrap/type";
-@import "bootstrap/tables";
-@import "bootstrap/forms";
-@import "bootstrap/buttons";
+@import "sass/type";
+@import "sass/tables";
+@import "sass/forms";
+@import "sass/buttons";
 
 // NAVIGATION
-@import "bootstrap/navigation/dropdowns";
-@import "bootstrap/navigation/navs";
-//@import "bootstrap/navigation/navbar";
-@import "bootstrap/navigation/navbarNEW";
-@import "bootstrap/navigation/breadcrumbs";
-@import "bootstrap/navigation/pagination";
-@import "bootstrap/navigation/pager";
+@import "sass/navigation/dropdowns";
+@import "sass/navigation/navs";
+@import "sass/navigation/navbar";
+@import "sass/navigation/breadcrumbs";
+@import "sass/navigation/pagination";
+@import "sass/navigation/pager";
 
 // COMPONENTS
-@import "bootstrap/component-animations";
-@import "bootstrap/button-groups";
-@import "bootstrap/input-groups";
-@import "bootstrap/alerts";
-@import "bootstrap/progress-bars";
-@import "bootstrap/media";
-@import "bootstrap/responsive-embed";
+@import "sass/component-animations";
+@import "sass/button-groups";
+@import "sass/input-groups";
+@import "sass/alerts";
+@import "sass/progress-bars";
+@import "sass/media";
+@import "sass/responsive-embed";
 
 
 // Components w/ JavaScript
-@import "bootstrap/tooltip";
-@import "bootstrap/popovers";
-@import "bootstrap/carousel";
+@import "sass/modules/tooltip";
+@import "sass/modules/popovers";
+@import "sass/modules/carousel";
 
 // UTILITY classes
-@import "bootstrap/utilities/utilities";
-@import "bootstrap/utilities/responsive-utilities";
+@import "sass/utilities/utilities";
+@import "sass/utilities/responsive-utilities";
