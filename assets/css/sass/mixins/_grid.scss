@@ -120,3 +120,19 @@
     right: percentage(($columns / $grid-columns));
   }
 }
+
+
+// a better way to add breakpoints within the css
+@mixin breakpoint($point) {
+  @if $point == small {
+    @media (min-width: $screen-sm) { @content; }
+  }
+  @else if $point == medium {
+    @media (min-width: $screen-md) { @content; }
+  }
+  @else if $point == large {
+    @media (min-width: $screen-lg)  { @content; }
+  }
+}
+
+// usage: @include breakpoint(small) {width:100%...styles etc }
