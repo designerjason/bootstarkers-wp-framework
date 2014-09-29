@@ -5,41 +5,38 @@
 // RESET and dependencies
 @import "sass/reset/normalize";
 @import "sass/reset/print";
-@import "sass/reset/glyphicons";
 @import "sass/reset/scaffolding";
 
-// LAYOUT grid
-@import "sass/grid/grid";
-@import "sass/grid/thumbnails";
+//BASE formatting
+@import "sass/base/buttons";
+@import "sass/base/typeography";
+@import "sass/base/tables";
+@import "sass/base/forms";
+@import "sass/base/glyphicons";
 
-// CORE CSS
-@import "sass/typeography";
-@import "sass/tables";
-@import "sass/forms";
-@import "sass/buttons";
+// LAYOUT 
+@import "sass/layout/grid";
 
-// NAVIGATION
-@import "sass/navigation/dropdowns";
-@import "sass/navigation/navs";
-@import "sass/navigation/navbar";
-@import "sass/navigation/breadcrumbs";
-@import "sass/navigation/pagination";
-@import "sass/navigation/pager";
+// MODULES - NAVIGATION
+@import "sass/modules/navigation/dropdowns";
+@import "sass/modules/navigation/navs";
+@import "sass/modules/navigation/navbar";
+@import "sass/modules/navigation/breadcrumbs";
+@import "sass/modules/navigation/pagination";
+@import "sass/modules/navigation/pager";
 
-// COMPONENTS
-@import "sass/component-animations";
-@import "sass/button-groups";
-@import "sass/input-groups";
-@import "sass/alerts";
-@import "sass/progress-bars";
-@import "sass/media";
-@import "sass/responsive-embed";
-
-
-// Components w/ JavaScript
+// MODULES
+@import "sass/modules/media";
+@import "sass/modules/alerts";
+@import "sass/modules/button-groups";
+@import "sass/modules/input-groups";
 @import "sass/modules/tooltip";
 @import "sass/modules/popovers";
+@import "sass/modules/thumbnails";
+@import "sass/modules/progress-bars";
 
 // UTILITY classes
+@import "sass/utilities/responsive-embed";
+@import "sass/utilities/component-animations";
 @import "sass/utilities/utilities";
 @import "sass/utilities/responsive-utilities";
