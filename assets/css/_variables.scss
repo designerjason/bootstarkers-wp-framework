@@ -2,7 +2,7 @@
 // defaults to true if twbs-font-path function is present (no function => twbs-font-path('') parsed as string == right side)
 // in Sass 3.3 this can be improved with: function-exists(twbs-font-path)
 $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")')) !default;
-$themename : "bootstarkers-SASS-3.2";
+$themename : "bootstarkers-wp-framework"; // get the folder name for the theme
 //
 // Variables
 // --------------------------------------------------
@@ -370,33 +370,6 @@ $navbar-default-toggle-hover-bg:           #ddd !default;
 $navbar-default-toggle-icon-bar-bg:        #888 !default;
 $navbar-default-toggle-border-color:       #ddd !default;
 
-
-// Inverted navbar
-// Reset inverted navbar basics
-$navbar-inverse-color:                      $gray-light !default;
-$navbar-inverse-bg:                         #222 !default;
-$navbar-inverse-border:                     darken($navbar-inverse-bg, 10%) !default;
-
-// Inverted navbar links
-$navbar-inverse-link-color:                 $gray-light !default;
-$navbar-inverse-link-hover-color:           #fff !default;
-$navbar-inverse-link-hover-bg:              transparent !default;
-$navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color !default;
-$navbar-inverse-link-active-bg:             darken($navbar-inverse-bg, 10%) !default;
-$navbar-inverse-link-disabled-color:        #444 !default;
-$navbar-inverse-link-disabled-bg:           transparent !default;
-
-// Inverted navbar brand label
-$navbar-inverse-brand-color:                $navbar-inverse-link-color !default;
-$navbar-inverse-brand-hover-color:          #fff !default;
-$navbar-inverse-brand-hover-bg:             transparent !default;
-
-// Inverted navbar toggle
-$navbar-inverse-toggle-hover-bg:            #333 !default;
-$navbar-inverse-toggle-icon-bar-bg:         #fff !default;
-$navbar-inverse-toggle-border-color:        #333 !default;
-
-
 //== Navs
 //
 //##
@@ -463,17 +436,6 @@ $pager-active-bg:                      $pagination-active-bg !default;
 $pager-active-color:                   $pagination-active-color !default;
 
 $pager-disabled-color:                 $pagination-disabled-color !default;
-
-
-//== Jumbotron
-//
-//##
-
-$jumbotron-padding:              30px !default;
-$jumbotron-color:                inherit !default;
-$jumbotron-bg:                   $gray-lighter !default;
-$jumbotron-heading-color:        inherit !default;
-$jumbotron-font-size:            ceil(($font-size-base * 1.5)) !default;
 
 
 //== Form states and alerts
@@ -705,33 +667,6 @@ $thumbnail-caption-color:     $text-color !default;
 $thumbnail-caption-padding:   9px !default;
 
 
-//== Wells
-//
-//##
-
-$well-bg:                     #f5f5f5 !default;
-$well-border:                 darken($well-bg, 7%) !default;
-
-
-//== Badges
-//
-//##
-
-$badge-color:                 #fff !default;
-//** Linked badge text color on hover
-$badge-link-hover-color:      #fff !default;
-$badge-bg:                    $gray-light !default;
-
-//** Badge text color in active nav link
-$badge-active-color:          $link-color !default;
-//** Badge background color in active nav link
-$badge-active-bg:             #fff !default;
-
-$badge-font-weight:           bold !default;
-$badge-line-height:           1 !default;
-$badge-border-radius:         10px !default;
-
-
 //== Breadcrumbs
 //
 //##
@@ -758,22 +693,6 @@ $close-color:                 #000 !default;
 $close-text-shadow:           0 1px 0 #fff !default;
 
 
-//== Code
-//
-//##
-
-$code-color:                  #c7254e !default;
-$code-bg:                     #f9f2f4 !default;
-
-$kbd-color:                   #fff !default;
-$kbd-bg:                      #333 !default;
-
-$pre-bg:                      #f5f5f5 !default;
-$pre-color:                   $gray-dark !default;
-$pre-border-color:            #ccc !default;
-$pre-scrollable-max-height:   340px !default;
-
-
 //== Type
 //
 //##
@@ -798,5 +717,3 @@ $page-header-border-color:    $gray-lighter !default;
 $dl-horizontal-offset:        $component-offset-horizontal !default;
 //** Horizontal line color.
 $hr-border:                   $gray-lighter !default;
-
-
