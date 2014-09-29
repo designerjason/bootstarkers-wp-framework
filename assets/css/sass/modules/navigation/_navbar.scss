@@ -1,41 +1,57 @@
 /***************V2 NAVIGATION****************/
 
 nav {
+    display: block;
     height: auto;
     position: static;
     width: auto; overflow:visible;
-    display:block;
-
+    
     li {
         display: inline-block;
-        position:relative; padding:5px;
+        padding: 5px;
+        position: relative; 
 
-        &.current_page_item > a, &.current-page-ancestor > a, &.current_page_parent > a{background-color:red}
+        &.current_page_item > a, 
+        &.current-page-ancestor > a, 
+        &.current_page_parent > a{
+            background-color: red;
+        }
 
         &:hover .sub-menu {
-            position:absolute; display:block;
-            top:25px;
-            //@include transparentbgd(0.95);
-            width:260px;
-            z-index:50;
+            display: block;
+            position: absolute; 
+            top: 25px;
+            width: 260px;
+            z-index: 50;
         }
     }
 
     a {
-        display:inline-block;
-       //@include opacity(1); font-size:1em;
-        &.active{background-color:red}
+        display: inline-block;
+
+        &.active{
+            background-color: red;
+        }
     }
 }
 
 //dropdowns
 nav{
-    ul.sub-menu{ display:none; padding-left:0;
+    ul.sub-menu{
         box-shadow: 1px 3px 5px rgba(0,0,0, 0.3);
-        text-align:left;
-        li{display:block; margin-left:0; font-size:0.9em}
-        a{display:block; margin-left:0}
+        display: none;
+        padding-left: 0;
+        text-align: left;
 
+        li{
+            display: block;
+            font-size: 0.9em;
+            margin-left: 0; 
+        }
+
+        a{
+            display: block;
+            margin-left: 0;
+        }
     }
-
 }
