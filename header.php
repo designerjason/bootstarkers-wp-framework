@@ -25,12 +25,13 @@
 		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/favicon.ico"/>
 		<?php wp_head(); ?>
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    	
     	<!--[if lt IE 9]>
 	  	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<script>window.jQuery || document.write('<script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/html5shiv.js"><\/script>')</script> 
       	<script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/min.respond.min.js"></script>
     	<![endif]-->
-		<!--[if lt IE 8]><p class=chromeframe>Your browser is out of date and insecure. <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site as intended.</p><![endif]-->
+    	
 	</head>
 	<body <?php body_class(); ?>>
 

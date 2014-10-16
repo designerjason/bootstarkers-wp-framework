@@ -171,6 +171,18 @@
 	add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
 
 
+	function pre_ie8_notice(){ ?>
+					<!--[if lt IE 8]>
+					<p class=chromeframe>Your browser is out of date and insecure. 
+						<a href="http://browsehappy.com/">Upgrade to a different browser</a> 
+						or <a href="http://www.google.com/chromeframe/?redirect=true">
+						install Google Chrome Frame</a> to experience this site as intended.
+					</p>
+					<![endif]-->
+	<?php }
+
+	add_filter('wp_head', 'pre_ie8_notice');
+
 	/* ========================================================================================================================
 	
 	Comments
