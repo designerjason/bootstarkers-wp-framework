@@ -16,6 +16,7 @@
 	======================================================================================================================== */
 
 	require_once( 'assets/includes/starkers-utilities.php' );
+	require_once( 'assets/includes/admin.php' );
 	//require_once( 'assets/includes/Mobile_Detect.php' );
 	//require_once( 'assets/includes/custom-post-type.php' );
 
@@ -36,14 +37,13 @@
 
 
 	// Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
-function remove_thumbnail_dimensions( $html )
-{
-    $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
-    return $html;
-}
+	function remove_thumbnail_dimensions( $html ){
+	    $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
+	    return $html;
+	}
 
-add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
-add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
+	add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
+	add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
 	
 
 	/** footer pagination for archive pages **/
@@ -125,17 +125,6 @@ add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove
 	add_filter('excerpt_length', 'new_excerpt_length');
 
 
-	// Change the admin default welcome page
-	function loginRedirect( $redirect_to, $request, $user ){
-    	if( is_array( $user->roles ) ) { // check if user has a role
-        	return home_url("/wp-admin/edit.php?post_type=ENTERHERE");
-
-    	}
-	}
-
-//add_filter("login_redirect", "loginRedirect", 10, 3);
-
-
 
 	/* ========================================================================================================================
 	
@@ -208,45 +197,6 @@ add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove
 			</article>
 		<?php endif;
 	}
-
-
-	/********** REMOVE AND CLEANUP STUFF **********/	
-	
-	// Remove admin menu items
-	function remove_menus () {
-		get_currentuserinfo();
-		global $current_user, $menu;
-
-		if( ! in_array( 'administrator', $current_user->roles ) ){
-			$restricted = array( __('Posts'), __('Links'), __('Tools'), __('Comments'), __('Feedbacks'), __('Settings'));
-			end ($menu);
-
-			while (prev($menu)){
-				$value = explode(' ',$menu[key($menu)][0]);
-				if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
-			}
-		}
-
-	}
-
-	add_action('admin_menu', 'remove_menus');
-
-	// Remove Admin bar
-	function remove_admin_bar(){
-   		return false;
-	}
-
-	add_filter('show_admin_bar', 'remove_admin_bar'); 
-
-
-	// Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
-	function remove_thumbnail_dimensions( $html ) {
-    	$html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
-    	return $html;
-	}
-
-	add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
-	add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
 
 	// Remove wordpress version in head
 	function wpbeginner_remove_version() { 
