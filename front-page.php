@@ -1,20 +1,13 @@
 <?php
 /**
- * Template Name: Home Page
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
- *
- * Please see /assets/includes/starkers-utilities.php for info on Starkers_Utilities::get_template_parts()
+ * Template file for when a static page is used for the home page
  *
  * @package 	WordPress
  * @subpackage 	Starkers
  * @since 		Starkers 4.0
  */
 ?>
+
 <?php Starkers_Utilities::get_template_parts( array( 'header' ) ); ?>
 
 <div class="container">
