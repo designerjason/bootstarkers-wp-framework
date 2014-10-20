@@ -24,13 +24,6 @@
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/favicon.ico"/>
 		<?php wp_head(); ?>
-		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    	
-    	<!--[if lt IE 9]>
-	  	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<script>window.jQuery || document.write('<script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/html5shiv.js"><\/script>')</script> 
-      	<script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/min.respond.min.js"></script>
-    	<![endif]-->
     	
 	</head>
 	<body <?php body_class(); ?>>
