@@ -84,7 +84,7 @@
 
 
 	// Google analytics code
-	function add_ga_code() { echo ?>
+	function add_ga_code() { ?>
 
 		<script type="text/javascript">
 	    	var _gaq = _gaq || [];
@@ -98,7 +98,7 @@
 	    	})();
 		</script>
 
-	} <?php
+	 <?php }
 
 	add_action( 'wp_footer', 'add_ga_code' );
 
@@ -219,3 +219,5 @@
 	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
 	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
 	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
+
+	?>
