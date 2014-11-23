@@ -22,15 +22,6 @@
 }
 
 
-// Fluid container
-//
-// Utilizes the mixin meant for fixed width containers, but without any defined
-// width for fluid, full width layouts.
-
-.container-fluid {
-  @include container-fixed();
-}
-
 
 // Row
 //
@@ -47,13 +38,6 @@
 
 @include make-grid-columns();
 
-
-// Extra small grid
-//
-// Columns, offsets, pushes, and pulls for extra small devices like
-// smartphones.
-
-@include make-grid(xs);
 
 
 // Small grid

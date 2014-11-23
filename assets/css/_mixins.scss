@@ -2,25 +2,12 @@
 // --------------------------------------------------
 
 // UTILITIES
-@import "sass/mixins/utilities/hide-text";
-@import "sass/mixins/utilities/opacity";
-@import "sass/mixins/utilities/image";
-@import "sass/mixins/utilities/labels";
-@import "sass/mixins/utilities/reset-filter";
-@import "sass/mixins/utilities/resize";
-@import "sass/mixins/utilities/responsive-visibility";
-@import "sass/mixins/utilities/size";
-@import "sass/mixins/utilities/tab-focus";
-@import "sass/mixins/utilities/text-emphasis";
-@import "sass/mixins/utilities/text-overflow";
-@import "sass/mixins/utilities/vendor-prefixes";
+@import "sass/mixins/utilities";
 
 // Components
 @import "sass/mixins/alerts";
 @import "sass/mixins/buttons";
-@import "sass/mixins/panels";
 @import "sass/mixins/pagination";
-@import "sass/mixins/list-group";
 @import "sass/mixins/nav-divider";
 @import "sass/mixins/forms";
 @import "sass/mixins/progress-bar";
