@@ -5,8 +5,8 @@
 // Make the div behave like a button
 .btn-group,
 .btn-group-vertical {
-  position: relative;
   display: inline-block;
+  position: relative;
   vertical-align: middle; // match .btn alignment given font-size hack above
   > .btn {
     position: relative;
@@ -150,8 +150,8 @@
   > .btn-group > .btn {
     display: block;
     float: none;
-    width: 100%;
     max-width: 100%;
+    width: 100%;
   }
 
   // Clear floats so dropdown menus can be properly placed
@@ -209,8 +209,8 @@
   border-collapse: separate;
   > .btn,
   > .btn-group {
-    float: none;
     display: table-cell;
+    float: none;
     width: 1%;
   }
   > .btn-group .btn {

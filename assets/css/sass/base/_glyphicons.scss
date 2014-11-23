@@ -23,15 +23,15 @@
 
 // Catchall baseclass
 .glyphicon {
-  position: relative;
-  top: 1px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   display: inline-block;
   font-family: 'Glyphicons Halflings';
   font-style: normal;
   font-weight: normal;
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  top: 1px;
 }
 
 // Individual icons
