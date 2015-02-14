@@ -205,6 +205,7 @@
 	function no_more_jumping( $post ) {
 		return '<a href="'.get_permalink($post->ID).'" class="read-more">'.'Continue Reading'.'</a>';
 	}
+	
 	add_filter( 'excerpt_more', 'no_more_jumping' );
 	add_filter( 'the_content_more_link', 'remove_more_jump_link' );
 
