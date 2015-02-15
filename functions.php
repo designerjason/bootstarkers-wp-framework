@@ -224,7 +224,7 @@ add_action( 'widgets_init', 'startertheme_widgets_init' );
 			wp_enqueue_script( 'jquery' );
 		}
 		
-		wp_register_script( 'site', get_template_directory_uri().'/assets/js/min/script.min.js', false, null, true );
+		wp_register_script( 'site', get_template_directory_uri().'/assets/scripts/min/script.min.js', false, null, true );
 		wp_enqueue_script( 'site' );
 
 		wp_register_style( 'bootstrap', get_stylesheet_directory_uri().'/assets/css/style.css', '', null, 'all' );
@@ -236,7 +236,7 @@ add_action( 'widgets_init', 'startertheme_widgets_init' );
 	function conditional_scripts(){
 
     	if ( is_page( 'pagenamehere' ) ) {
-        	wp_register_script( 'scriptname', get_template_directory_uri() . '/js/scriptname.js', array( 'jquery' ), '1.0.0' ); // Conditional script(s)
+        	wp_register_script( 'scriptname', get_template_directory_uri() . '/scripts/scriptname.js', array( 'jquery' ), '1.0.0' ); // Conditional script(s)
         	wp_enqueue_script( 'scriptname' ); // Enqueue it!
     	}
 	}
@@ -256,7 +256,7 @@ add_action( 'widgets_init', 'startertheme_widgets_init' );
 
 					<!--[if lt IE 9]>
 	  	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-      	<script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/min/respond.min.js"></script>
+      	<script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/scripts/min/respond.min.js"></script>
     	<![endif]-->
 	<?php }
 
@@ -290,5 +290,8 @@ add_action( 'widgets_init', 'startertheme_widgets_init' );
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/assets/includes/template-tags.php';
+require get_template_directory() . '/acf/advanced-custom-fields/acf.php';
+require get_template_directory() . '/acf/acf-gallery/acf-gallery.php';
+require get_template_directory() . '/acf/acf-repeater/acf-repeater.php';
 
 	?>
