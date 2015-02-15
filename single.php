@@ -8,9 +8,10 @@
  * @subpackage 	Starkers
  * @since 		Starkers 4.0
  */
-?>
-<?php Starkers_Utilities::get_template_parts( array( 'header' ) ); ?>
-<div class="container">
+
+get_header(); ?>
+
+<div class="container" role="main">
 	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 	<article>
@@ -21,6 +22,15 @@
 
 	</article>
 
+			<?php
+				// If comments are open or we have at least one comment, load up the comment template
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
+			?>
+
 	<?php endwhile; ?>
 </div>
-<?php Starkers_Utilities::get_template_parts( array( 'footer' ) ); ?>
+
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>

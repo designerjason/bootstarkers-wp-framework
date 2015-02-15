@@ -8,23 +8,14 @@
  * @subpackage 	Starkers
  * @since 		Starkers 4.0
  */
-?>
-<?php Starkers_Utilities::get_template_parts( array( 'header' ) ); ?>
 
-<div class="container">
-	<h1>Page not found</h1>
-	<h2>Well this is somewhat embarrassing, isn't it?</h2>
+get_header(); ?>
 
-	<p>Sorry, but the page you were trying to view does not exist.</p>
+	<div class="container">
+		<h1><?php _e( 'Oops! That page can&rsquo;t be found.', 'startertheme' ); ?></h1>
 
-	<p>It looks like this was the result of either:</p>
-		
-		<ul>
-    		<li>a mistyped address</li>
-    		<li>an out-of-date link</li>
-		</ul>
+		<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'startertheme' ); ?></p>
 
-	<p>If you think there should be a page here, please get in touch , thanks!</p>
-</div>
+	</div>
 
-<?php Starkers_Utilities::get_template_parts( array( 'footer' ) ); ?>
+<?php get_footer(); ?>

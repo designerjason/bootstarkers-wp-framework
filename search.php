@@ -8,8 +8,9 @@
  * @subpackage 	Starkers
  * @since 		Starkers 4.0
  */
-?>
-<?php Starkers_Utilities::get_template_parts( array( 'header' ) ); ?>
+
+get_header(); ?>
+
 <div class="container">
 <?php if ( have_posts() ): ?>
 	<h1>Search Results for '<?php echo get_search_query(); ?>'</h1>	
@@ -26,8 +27,12 @@
 	<?php endwhile; ?>
 	</ol>
 
+<?php le_pagination(); ?>
+ 
 <?php else: ?>
 	<h2>No results found for '<?php echo get_search_query(); ?>'</h2>
 <?php endif; ?>
 </div>
-<?php Starkers_Utilities::get_template_parts( array( 'footer' ) ); ?>
+
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>

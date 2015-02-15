@@ -10,24 +10,19 @@
  * Please see /external/starkers-utilities.php for info on Starkers_Utilities::get_template_parts() 
  *
  * @package 	WordPress
- * @subpackage 	Starkers
- * @since 		Starkers 4.0
  */
-?>
-<?php Starkers_Utilities::get_template_parts( array( 'header' ) ); ?>
+
+get_header(); ?>
 
 <div class="container">
 <?php if ( have_posts() ): ?>
 
-	<?php if ( is_day() ) : ?>
-	<h1>Archive: <?php echo  get_the_date( 'D M Y' ); ?></h1>							
-	<?php elseif ( is_month() ) : ?>
-	<h1>Archive: <?php echo  get_the_date( 'M Y' ); ?></h1>	
-	<?php elseif ( is_year() ) : ?>
-	<h1>Archive: <?php echo  get_the_date( 'Y' ); ?></h1>								
-	<?php else : ?>
-	<h1>Archive</h1>	
-	<?php endif; ?>
+	<header class="page-header">
+		<?php
+			the_archive_title( '<h1 class="page-title">', '</h1>' );
+			the_archive_description( '<div class="taxonomy-description">', '</div>' );
+		?>
+	</header><!-- .page-header -->
 
 	<ul>
 		<?php while ( have_posts() ) : the_post(); ?>
@@ -49,4 +44,5 @@
 
 </div>
 
-<?php Starkers_Utilities::get_template_parts( array( 'footer' ) ); ?>
+<?php get_sidebar(); ?>
+<?php get_footer(); ?>

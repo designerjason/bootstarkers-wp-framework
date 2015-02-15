@@ -12,10 +12,10 @@
  * @subpackage 	Starkers
  * @since 		Starkers 4.0
  */
-?>
-<?php Starkers_Utilities::get_template_parts( array( 'header' ) ); ?>
 
-<div class="container">
+get_header(); ?>
+
+<div class="container" role="main">
 <?php if ( have_posts() ): ?>
 	<h1>Latest Posts</h1>	
 
@@ -36,4 +36,5 @@
 <?php endif; ?>
 </div>
 
-<?php Starkers_Utilities::get_template_parts( array( 'footer') ); ?>
+?php get_sidebar(); ?>
+<?php get_footer(); ?>
